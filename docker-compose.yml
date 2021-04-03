@@ -5,12 +5,14 @@ services:
         container_name: online_store_db
         image: mysql
         restart: always
-        ports: 
-            - "3306:3306"
+        ports:
+            - "8080:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - ./mysql-data:/var/lib/mysql
         networks:
             - "online-store"
-        volumes:
-            - /opt/mysql_data:/var/lib/mysql
 
 networks:
     online-store:
