@@ -3,7 +3,7 @@ version: "3"
 services:
     mysqldb:
         container_name: online_store_db
-        image: mongo
+        image: mysql
         restart: always
         ports: 
             - "3306:3306"
