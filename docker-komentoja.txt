@@ -1,0 +1,8 @@
+sudo docker run --name online_store_db -p 8080:3306 -e MYSQL_ROOT_PASSWORD=password mysql
+sudo docker exec -it online_store_db bash
+
+//ottaa backupin mysql-kontin tietokannasta
+sudo docker exec online_store_db /usr/bin/mysqldump -u root -ppassword online_store_database > /home/lassiviitakoski/backups/mysql/backup.sql
+
+//palauttaa tietokannan (täytyy ensin käydä luomassa kontin tietokantaan database online_store_database
+cat /home/lassiviitakoski/backups/mysql/backup.sql | docker exec -i online_store_db /usr/bin/mysql -u root -ppassword online_store_database
