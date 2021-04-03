@@ -1,7 +1,22 @@
 version: "3"
 
 services:
-    mysqldb:
+    sourcecode:
+        container_name: online-store-server
+        restart: always
+        build: ./source-code/
+        ports:
+            - "3000:3000"
+        links:
+            - mysql
+        depends_on:
+            - mysql
+        env_file: .env.server
+        networks:
+            - online-store
+
+
+    mysql:
         container_name: online_store_db
         image: mysql
         restart: always
@@ -12,8 +27,7 @@ services:
         volumes:
             - ./mysql-data:/var/lib/mysql
         networks:
-            - "online-store"
-
+            - online-store
 networks:
     online-store:
         external: true
