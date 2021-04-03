@@ -2,7 +2,7 @@ FROM node:14
 
 WORKDIR /usr/src/server/
 
-RUN git clone https://github.com/online-store-project/source-code.git ./
+RUN git clone git@github.com:online-store-project/source-code.git ./
 
 RUN npm install
 
