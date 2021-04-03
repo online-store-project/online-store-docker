@@ -2,7 +2,8 @@ version: "3"
 
 services:
     sourcecode:
-        container_name: online-store-server
+        image: source-code
+        container_name: server
         restart: always
         build: ./source-code/
         ports:
@@ -14,8 +15,6 @@ services:
         env_file: .env.server
         networks:
             - online-store
-
-
     mysql:
         container_name: online_store_db
         image: mysql
