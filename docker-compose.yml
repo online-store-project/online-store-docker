@@ -24,7 +24,7 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         volumes:
-            - ./mysql-data:/var/lib/mysql
+            - ./data/mysql-data:/var/lib/mysql
         networks:
             - online-store
 networks:
